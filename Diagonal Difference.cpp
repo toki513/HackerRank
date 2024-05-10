@@ -7,17 +7,20 @@ string rtrim(const string &);
 vector<string> split(const string &);
 
 
-int birthday(vector<int> s, int d, int m) {
-    int i, j , sum,count = 0;
-    for(i=0;i<s.size();i++){
-        sum=0;
-        for(j=i;j<(i+m);j++){
-            sum+=s[j];
+int diagonalDifference(vector<vector<int>> arr) {
+    int i , j , leftsum=0, rightsum = 0, total = 0;
+    for(i=0;i<arr.size();i++){
+        for(j=i;j<=i;j++){
+            if(i == j){
+                leftsum+=arr[i][j];
+            }
         }
-        if(sum == d)
-            count++;
-    }
-    return count;
+    } for (i = 0; i < arr.size(); i++) {
+        rightsum += arr[i][arr.size() - 1 - i];
+    } 
+    total= abs(leftsum-rightsum);
+    
+    return total;
 }
 
 // int main()
@@ -29,29 +32,24 @@ int birthday(vector<int> s, int d, int m) {
 
 //     int n = stoi(ltrim(rtrim(n_temp)));
 
-//     string s_temp_temp;
-//     getline(cin, s_temp_temp);
-
-//     vector<string> s_temp = split(rtrim(s_temp_temp));
-
-//     vector<int> s(n);
+//     vector<vector<int>> arr(n);
 
 //     for (int i = 0; i < n; i++) {
-//         int s_item = stoi(s_temp[i]);
+//         arr[i].resize(n);
 
-//         s[i] = s_item;
+//         string arr_row_temp_temp;
+//         getline(cin, arr_row_temp_temp);
+
+//         vector<string> arr_row_temp = split(rtrim(arr_row_temp_temp));
+
+//         for (int j = 0; j < n; j++) {
+//             int arr_row_item = stoi(arr_row_temp[j]);
+
+//             arr[i][j] = arr_row_item;
+//         }
 //     }
 
-//     string first_multiple_input_temp;
-//     getline(cin, first_multiple_input_temp);
-
-//     vector<string> first_multiple_input = split(rtrim(first_multiple_input_temp));
-
-//     int d = stoi(first_multiple_input[0]);
-
-//     int m = stoi(first_multiple_input[1]);
-
-//     int result = birthday(s, d, m);
+//     int result = diagonalDifference(arr);
 
 //     fout << result << "\n";
 
