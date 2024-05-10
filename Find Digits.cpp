@@ -14,53 +14,53 @@ int findDigits(int n) {
         if(i != 0 && temp % i == 0)
             count++;
         n/=10;
-    }
+    }rs
     return count;
 }
 
-int main()
-{
-    ofstream fout(getenv("OUTPUT_PATH"));
+// int main()
+// {
+//     ofstream fout(getenv("OUTPUT_PATH"));
 
-    string t_temp;
-    getline(cin, t_temp);
+//     string t_temp;
+//     getline(cin, t_temp);
 
-    int t = stoi(ltrim(rtrim(t_temp)));
+//     int t = stoi(ltrim(rtrim(t_temp)));
 
-    for (int t_itr = 0; t_itr < t; t_itr++) {
-        string n_temp;
-        getline(cin, n_temp);
+//     for (int t_itr = 0; t_itr < t; t_itr++) {
+//         string n_temp;
+//         getline(cin, n_temp);
 
-        int n = stoi(ltrim(rtrim(n_temp)));
+//         int n = stoi(ltrim(rtrim(n_temp)));
 
-        int result = findDigits(n);
+//         int result = findDigits(n);
 
-        fout << result << "\n";
-    }
+//         fout << result << "\n";
+//     }
 
-    fout.close();
+//     fout.close();
 
-    return 0;
-}
+//     return 0;
+// }
 
-string ltrim(const string &str) {
-    string s(str);
+// string ltrim(const string &str) {
+//     string s(str);
 
-    s.erase(
-        s.begin(),
-        find_if(s.begin(), s.end(), not1(ptr_fun<int, int>(isspace)))
-    );
+//     s.erase(
+//         s.begin(),
+//         find_if(s.begin(), s.end(), not1(ptr_fun<int, int>(isspace)))
+//     );
 
-    return s;
-}
+//     return s;
+// }
 
-string rtrim(const string &str) {
-    string s(str);
+// string rtrim(const string &str) {
+//     string s(str);
 
-    s.erase(
-        find_if(s.rbegin(), s.rend(), not1(ptr_fun<int, int>(isspace))).base(),
-        s.end()
-    );
+//     s.erase(
+//         find_if(s.rbegin(), s.rend(), not1(ptr_fun<int, int>(isspace))).base(),
+//         s.end()
+//     );
 
-    return s;
-}
+//     return s;
+// }
